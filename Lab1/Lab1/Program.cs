@@ -13,8 +13,11 @@ namespace Lab1
         private static string _nick;
         private static EndPoint _remotePoint;
         private static readonly Socket Socket = new (AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-        private static readonly List<(DateTime, string)> Messages = new();
-
+        private static readonly List<(int, string)> Messages = new();
+        private static int counter;
+        private const char SeparatorStick= '|';
+        
+    
         private static void StartPage()
         {
             try
@@ -25,7 +28,7 @@ namespace Lab1
                 Console.Clear();
                 Console.WriteLine("Hello, " + _nick);
                 Console.WriteLine("Enter your port");
-                int myPort = Convert.ToInt32(Console.ReadLine());
+                var myPort = Convert.ToInt32(Console.ReadLine());
                 Socket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), myPort));
                 Console.WriteLine("Enter ip of your companion");
                 var ip = Console.ReadLine();
@@ -49,7 +52,7 @@ namespace Lab1
                 while (true)
                 {
                     StringBuilder value = new ();
-                    byte[] data = new byte[256];
+                    var data = new byte[256];
                     do
                     {
                         var bytes = Socket.ReceiveFrom(data, ref _remotePoint);
@@ -59,34 +62,29 @@ namespace Lab1
 
                     switch (value[0])
                     {
-                        case '/':
-                        {
-                            value.Remove(0,1);
-                            if (Convert.ToInt32(value.ToString()) != Messages.Count)
-                            {
-                                Error("Some message was not delivered to you.");
-                                Socket.Send(Encoding.Unicode.GetBytes("|"));
-                            }
-
-                            break;
-                        }
-                        case '|':
-                            var mes = Encoding.Unicode.GetBytes(Messages[-1].Item1 + "|"+Messages[-1].Item2);
-                            Socket.SendTo(mes, _remotePoint);
+                        case SeparatorStick:
+                            value.Remove(0, 1);
+                            var mes = Messages[Convert.ToInt32(value)].Item1 + SeparatorStick.ToString() +Messages[Convert.ToInt32(value)].Item2;
+                            var dataSend = Encoding.Unicode.GetBytes(counter + SeparatorStick.ToString() +_nick + ": " + mes);
+                            Socket.SendTo(dataSend, _remotePoint);
                             Error("Some message was not delivered to your companion.");
                             break;
                         default:
-                            string temp = "";
+                            var temp = "";
                             for (var i = 0; i < value.Length; i++)
                             {
-                                if (value[i] != '|')
+                                if (value[i] != SeparatorStick)
                                 {
                                     temp += value[i];
                                 }
                                 else
                                 {
                                     value.Remove(0, i + 1);
-                                    Messages.Add((Convert.ToDateTime(temp), value.ToString()));
+                                    Messages.Add((Convert.ToInt32(temp), value.ToString()));
+                                    if (counter <= Convert.ToInt32(temp))
+                                    {
+                                        counter = Convert.ToInt32(temp) + 1;
+                                    }
                                     DisplayMessageHistory();
                                     break;
                                 }
@@ -106,13 +104,27 @@ namespace Lab1
             while (true)
             {
                 var message = Console.ReadLine();
-                var time = DateTime.UtcNow;
-                Messages.Add((time, _nick + ": " + message));
+                Messages.Add((counter, _nick + ": " + message));
                 DisplayMessageHistory();
-                var data = Encoding.Unicode.GetBytes(time + "|"+_nick + ": " + message);
+                var data = Encoding.Unicode.GetBytes(counter + SeparatorStick.ToString() +_nick + ": " + message);
                 Socket.SendTo(data, _remotePoint);
                 Thread.Sleep(500);
-                Socket.SendTo(Encoding.Unicode.GetBytes("/" + Messages.Count),_remotePoint);
+                counter++;
+            }
+        }
+        
+        private static void CheckMessages()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                for (var i = 0; i < Messages.Count; i++)
+                {
+                    if (Messages[i].Item1 == i) continue;
+                    var mes = Encoding.Unicode.GetBytes(SeparatorStick.ToString() + i);
+                    Socket.SendTo(mes, _remotePoint);
+                    Error("Some message was not delivered to your companion.");
+                }
             }
         }
 
@@ -140,6 +152,7 @@ namespace Lab1
             receive.Start();
             Thread send = new (SendMessage);
             send.Start();
+            CheckMessages();
         }
     }
 }
