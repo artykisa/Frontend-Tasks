@@ -1,0 +1,14 @@
+.track-list{
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+}
+
+.track-list_track{
+    margin-top: 20px;
+}
+
+.track-list_track_ref{
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,85 @@
+.track_text{
+    text-align: center;
+    font-family: Candara, serif;
+}
+
+.track_album{
+    text-align: center;
+    font-size: larger;
+    font-family: Candara, serif;
+}
+
+.track_name{
+    text-align: center;
+    font-size: larger;
+    font-family: Candara, serif;
+}
+
+.track-buttons{
+    text-align: center;
+    padding-bottom: 35px;
+    padding-top: 10px;
+}
+
+.track-buttons_like{
+
+}
+
+.track-buttons_dislike{
+
+}
+
+.comment{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.comment_text{
+
+}
+
+.comment_text_text{
+    display: inline;
+}
+
+.comment_like{
+    margin-left: 10px;
+}
+
+.comment_dislike{
+    margin-left: 10px;
+}
+
+.track_text_desc{
+    font-weight: bold;
+}
+
+.form-write-comment{
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.form-write-comment_but{
+    display: inline;
+}
+
+.edit-lyr{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.track_text_desc:hover::after{
+    content: attr(data-title);
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    background: rgba(255,255,230,0.9);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+}

@@ -1,0 +1,25 @@
+.form-add-lyrics{
+    text-align: center;
+}
+
+.form-input{
+    margin-top: 25px;
+}
+
+.lyrics-label{
+    margin-top: 25px;
+}
+
+.lyrics-input{
+    margin-top: 15px;
+    height: 200px;
+    width: 400px;
+}
+
+.language-label{
+
+}
+
+.language-select{
+    margin-top: 15px;
+}

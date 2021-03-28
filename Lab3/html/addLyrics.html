@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" >
+    <title>Add lyrics</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/addLyrics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <div class="nav-bar">
+        <a href="main.html" class="nav-bar-item">Home</a>
+        <input class="nav-bar-search" type="search">
+        <a href="profile.html" class="nav-bar-item">Profile</a>
+    </div>
+    <div class="hamburger-menu">
+        <a href="main.html" class="active">Kisurin</a>
+        <div id="menu-links">
+            <a href="main.html">Home</a>
+            <input type="search">
+            <a href="login.html">Log in</a>
+        </div>
+        <a class="icon" >
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+<main>
+    <br>
+    <br>
+    <br>
+    <form class="form-add-lyrics">
+        <label class="language-label">Language
+            <br>
+            <select class="language-select">
+                <option value="ru">Russian</option>
+                <option value="eng">English</option>
+                <option value="blr">Belarusian</option>
+            </select>
+            <br>
+        </label>
+        <label class="lyrics-label">Lyrics
+            <br>
+            <textarea class="lyrics-input" type="text"></textarea>
+            <br>
+        </label>
+
+        <input class="form-input" type="button" value="Submit">
+    </form>
+</main>
+<footer>
+    <p class="footer-message">Kisurin - 2021</p>
+</footer>
+</body>
+</html>
