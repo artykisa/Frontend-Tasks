@@ -18,32 +18,28 @@
         <a href="main.html" class="active">Kisurin</a>
         <div id="menu-links">
             <a href="main.html">Home</a>
-            <input type="search">
+            <input class="hamburger-search" type="search">
             <a href="login.html">Log in</a>
         </div>
-        <a class="icon" >
+        <button class="icon" >
             <i class="fa fa-bars"></i>
-        </a>
+        </button>
     </div>
 </header>
 <main>
-    <br>
-    <br>
-    <br>
     <form class="form-add-lyrics">
-        <label class="language-label">Language
-            <br>
+        <label class="language-label">
+            <div class="label-text"> Language</div>
+
             <select class="language-select">
                 <option value="ru">Russian</option>
                 <option value="eng">English</option>
                 <option value="blr">Belarusian</option>
             </select>
-            <br>
+
         </label>
-        <label class="lyrics-label">Lyrics
-            <br>
+        <label class="lyrics-label"><div class="label-text">Lyrics</div>
             <textarea class="lyrics-input" type="text"></textarea>
-            <br>
         </label>
 
         <input class="form-input" type="button" value="Submit">
