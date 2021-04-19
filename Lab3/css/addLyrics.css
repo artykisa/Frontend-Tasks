@@ -1,0 +1,90 @@
+.form-add-lyrics{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.form-input{
+    margin-top: 25px;
+}
+
+.lyrics-label{
+    margin-top: 25px;
+    display: block;
+}
+
+.lyrics-input{
+    height: 200px;
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .5em;
+}
+
+.language-label{
+    display: block;
+}
+
+.language-select{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-input {
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 35px 30px;
+    transition: all 0.3s;
+}
+
+.form-input:hover, .form-track-input:focus {
+    color: black;
+    border: 2px solid black;
+}
+
+.lyrics-label,
+.language-label {
+    display: block;
+    letter-spacing: 4px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.lyrics-label .label-text,
+.language-label .label-text{
+    color: #9B9B9B;
+    cursor: text;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+    -moz-transform: translateY(-34px);
+    -ms-transform: translateY(-34px);
+    -webkit-transform: translateY(-34px);
+    transform: translateY(-34px);
+    transition: all 0.3s;
+}
+
+.language-select{
+    display: block;
+    font-size: 16px;
+    font-family: Candara, serif;
+    font-weight: 700;
+    color: #444;
+    padding: .6em 1.4em .5em .8em;
+    width: 30%;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .5em;
+}
+
+
+
+
