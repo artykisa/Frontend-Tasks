@@ -5,6 +5,11 @@ function fillSearchList(){
 
         ref.on("value", function(snapshot) {
                 var ul = document.getElementById("ul-track-list");
+                if(snapshot.val() == null){
+                        var li = document.createElement("li");
+                        li.appendChild(document.createTextNode("No data found"));
+                        ul.appendChild(li)
+                }
                 Object.keys(snapshot.val()).forEach(element =>{
                         var li = document.createElement("li");
                         li.setAttribute("class", "track-list_track_ref");

@@ -13,6 +13,11 @@ function fillSearchLyricsList(){
         console.log(snapshot.val());
         console.log(Object.keys(snapshot.val()));
         var ul = document.getElementById("ul-track-list");
+        if(Object.keys(snapshot.val()).length === 1){
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode("No data found"));
+            ul.appendChild(li)
+        }
         Object.keys(snapshot.val()).forEach(element =>{
             if(element !== 'album'){
                 var li = document.createElement("li");
