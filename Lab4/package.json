@@ -1,0 +1,23 @@
+{
+  "name": "firebase",
+  "version": "1.0.0",
+  "description": "genius_kisurin",
+  "main": "index.js",
+  "scripts": {
+    "test": "alert('opa')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "-"
+  },
+  "author": "Artyom Kisurin",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "firebase": "^8.3.2",
+    "query-string": "^7.0.0"
+  },
+  "devDependencies": {
+    "firebase-admin": "^9.6.0"
+  },
+  "type": "module"
+}

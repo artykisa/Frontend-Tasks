@@ -1,0 +1,38 @@
+.track-list{
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    margin-top: 90px;
+}
+
+.track-list_track{
+    margin-top: 20px;
+}
+
+.track-list_track_ref{
+    text-decoration: none;
+    color: gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.add-lyrics{
+    display: block;
+    margin: 35px auto;
+}
+
+.add-lyrics{
+    text-align: center;
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 55px;
+    transition: all 0.3s;
+}

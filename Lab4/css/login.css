@@ -1,0 +1,20 @@
+.google-sign-up{
+    text-align: center;
+}
+.google-sign-up-button{
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 190px 30px;
+    transition: all 0.3s;
+}
+
+.google-sign-up-button:focus{
+    color: black;
+    border: 2px solid black;
+}
