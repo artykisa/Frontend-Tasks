@@ -34,19 +34,51 @@ function getTrack(){
         var textField = document.getElementById("track_text");
         var textTrack = snapshot.val().split("\n")
         for (var i = 0; i < textTrack.length; i++) {
+            var onclickParam = "explain" + i;
             if(textExplanation[i] != null && textExplanation[i]!==""){
                 console.log("<span class='track_text_desc' data-title='" + textExplanation[i] + "'>" + textTrack[i] + "</span> <br />")
-                textField.innerHTML += "<span class='track_text_desc' data-title='" + textExplanation[i] + "'>" + textTrack[i] + "</span> <br />"
+
+                textField.innerHTML += "<span class='track_text_desc'  onclick='onClickSpan(" + onclickParam+")' data-title='" + textExplanation[i] + "'>" + textTrack[i] + "</span> <input id='explain" + i + "' class='input-explain' onchange=\"updateLyrics("+textTrack.length+")\" style=\"visibility:hidden;\" type='text' value='"+ textExplanation[i]+"'><br />"
             }
             else{
                 console.log(textTrack[i])
-                textField.innerHTML += textTrack[i] + "<br>"
+                textField.innerHTML += "<span onclick='onClickSpan(" + onclickParam+")'>" + textTrack[i] + "</span>  <input id='explain" + i + "' class='input-explain' onchange=\"updateLyrics("+textTrack.length+")\" style=\"visibility:hidden;\" type='text' value='"+ textExplanation[i]+"'> <br>"
             }
-
         }
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
+}
+
+function updateLyrics(length){
+    let explanation = "";
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+    const querySplit = queryString.split('&');
+    const lyrics = querySplit.pop()
+    const track = querySplit.pop()
+    const artist = querySplit.pop()
+    console.log(queryString)
+    for(var i = 0; i<length;i++){
+        if(document.getElementById("explain" + i).value !== 'undefined'){
+            explanation += document.getElementById("explain" + i).value + "\n";
+        }
+        else{
+            explanation +=  "\n";
+        }
+    }
+    firebase.database().ref(`/Explanation/${artist}/${track}/${lyrics}`)
+        .set(explanation)
+}
+
+function onClickSpan(idLine){
+    console.log('ONCLICK SPAN',idLine)
+    if(idLine.style.visibility === 'visible'){
+        idLine.style.visibility = 'hidden'
+    }
+    else{
+        idLine.style.visibility = 'visible'
+    }
 }
 
 function redirectToEditExplanation(){
@@ -297,6 +329,5 @@ function sendComment(){
             console.log("no user")
         }
     });
-
 
 }
