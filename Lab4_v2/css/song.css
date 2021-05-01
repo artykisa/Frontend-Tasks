@@ -1,0 +1,169 @@
+.track{
+    margin-top: 70px;
+}
+.track_text{
+    padding-left: 200px;
+    text-align: center;
+    font-family: Candara, serif;
+}
+
+.track_album{
+    text-align: center;
+    font-size: larger;
+    font-family: Candara, serif;
+}
+
+.track_name{
+    text-align: center;
+    font-size: larger;
+    font-family: Candara, serif;
+}
+
+.track-buttons{
+    text-align: center;
+    margin-top: 25px;
+    padding-bottom: 35px;
+}
+
+
+
+.comment_like,
+.track-buttons_like{
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.comment_dislike,
+.track-buttons_dislike{
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.comment_like:focus,
+.comment_dislike:focus,
+.track-buttons_dislike:focus,
+.track-buttons_like:focus{
+    color: black;
+    border: 2px solid black;
+}
+
+.comment{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.comment_text{
+
+}
+
+.comment_text_text{
+    display: inline;
+}
+
+.comment_like{
+    margin-left: 10px;
+}
+
+.comment_dislike{
+    margin-left: 10px;
+}
+
+.track_text_desc{
+    font-weight: bold;
+}
+
+
+.form-write-comment{
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.form-write-comment_but{
+    display: inline;
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 20px;
+}
+
+.form-write-comment_but:focus{
+    color: black;
+    border: 2px solid black;
+}
+
+.edit-lyr{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.track_text_desc:hover::after{
+    content: attr(data-title);
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    background: rgba(255,255,230,0.9);
+    font-family: Candara, serif;
+    font-size: 15px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+}
+
+.comment_text_nick,
+.comment_text_text{
+    font-size: larger;
+    font-family: Candara, serif;
+    margin-top: 25px;
+}
+
+.form-write-comment_area{
+    border-radius: .5em;
+    height: 50px;
+    width: 200px;
+    font-family: Candara, serif;
+}
+
+.comment{
+    margin-top: 25px;
+}
+
+.input-explain{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #4A4A4A;
+    color: black;
+    font-size: 20px;
+    letter-spacing: 1px;
+    outline: 0;
+    text-align: center;
+    width: 200px;
+}
+
+

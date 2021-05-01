@@ -1,0 +1,46 @@
+.profile-greetings{
+    text-align: center;
+    font-family: Candara, serif;
+    margin-top: 70px;
+}
+
+.profile-add-track{
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-add-track{
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 35px;
+    transition: all 0.3s;
+}
+
+.profile-add-track:focus{
+    color: black;
+    border: 2px solid black;
+}
+
+.profile-logout{
+    display: block;
+    margin: 0 auto;
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 35px;
+    transition: all 0.3s;
+}
+
+.profile-logout:focus{
+    color: black;
+    border: 2px solid black;
+}

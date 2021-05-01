@@ -1,0 +1,43 @@
+.track_text_button{
+    margin-top: 20px;
+}
+.explain_section{
+    margin-top: 70px;
+}
+
+.track_text_button {
+    color: gray;
+    border: 2px gray;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 20px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 35px 30px;
+    transition: all 0.3s;
+}
+
+.track_text_button:hover, .track_text_button:focus{
+    color: black;
+    border: 2px solid black;
+}
+
+.input-explain{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #4A4A4A;
+    color: black;
+    font-size: 20px;
+    letter-spacing: 1px;
+    outline: 0;
+    padding: 5px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    width: 200px;
+}
+
+.input-explain:focus{
+    max-width: 100%;
+    width: 45vh;
+}
